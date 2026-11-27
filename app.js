@@ -35,3 +35,14 @@ form.addEventListener('submit', (e) => {
 });
 
 renderTasks();
+function editTask(index) {
+  document.getElementById('task-id').value = index;
+  document.getElementById('task-title').value = tasks[index].title;
+  document.getElementById('task-desc').value = tasks[index].desc;
+}
+
+function deleteTask(index) {
+  tasks.splice(index, 1);
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+  renderTasks();
+}
